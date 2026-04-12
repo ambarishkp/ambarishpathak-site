@@ -5,6 +5,11 @@
   <title>Ambarish Pathak | Systems Design</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SEO -->
+  <meta name="description" content="Ambarish Pathak - Network Architect and Financial Systems Thinker. Explore tools, case studies, and insights on scalable systems.">
+  <meta name="keywords" content="network architect, financial planning, SIP calculator, PF NPS planning, systems design">
+  <meta name="author" content="Ambarish Pathak">
+
   <style>
     body {
       margin: 0;
@@ -76,6 +81,10 @@
       text-decoration: none;
     }
 
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
     /* SECTION */
     .section {
       padding: 70px 0;
@@ -98,6 +107,12 @@
       padding: 20px;
       border-radius: 10px;
       border: 1px solid #e2e8f0;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
     .card h3 {
@@ -106,6 +121,11 @@
 
     .card p {
       color: #475569;
+    }
+
+    .card a {
+      color: #2563eb;
+      text-decoration: none;
     }
 
     .footer {
@@ -121,7 +141,7 @@
 
 <!-- 🔥 TOP BANNER -->
 <div class="banner">
-  🚀 Try my Financial Goal Planner →
+  Try my Financial Goal Planner →
   <a href="finance.html">Open Tool</a>
 </div>
 
@@ -132,7 +152,7 @@
     <div><strong>Ambarish Pathak</strong></div>
     <div>
       <a href="#network">Network</a>
-      <a href="finance.html">Finance Tools</a>
+      <a href="tools.html">Finance Tools</a>
       <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
     </div>
@@ -150,7 +170,7 @@
 
   <!-- FEATURED TOOL -->
   <div class="section" id="featured">
-    <h2>🔥 Featured Tool</h2>
+    <h2> Featured Tool</h2>
 
     <div class="card">
       <h3>Financial Goal Planner</h3>
@@ -198,6 +218,38 @@
     </div>
   </div>
 
+  <!-- FINANCE -->
+  <div class="section" id="finance">
+    <h2>Personal Finance</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Long-Term Investing</h3>
+        <p>
+          Focused on disciplined investing using equity, PF, and compounding strategies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Financial Systems</h3>
+        <p>
+          Treating wealth creation as a system — structured, consistent, and scalable.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>
+          <a href="tools.html">Tools & Calculators →</a>
+        </h3>
+        <p>
+          Interactive tools to plan investments, projections, and financial decisions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
   <!-- BLOG -->
   <div class="section" id="blog">
     <h2>🧠 Blog</h2>
@@ -205,17 +257,13 @@
     <div class="grid">
 
       <div class="card">
-        <h3>Why I Avoid F&O Trading</h3>
-        <p>
-          My approach to long-term wealth building and why I focus on compounding instead of speculation.
-        </p>
+        <h3><a href="blog-fo.html">Why I Avoid F&O Trading</a></h3>
+        <p>My approach to long-term wealth building.</p>
       </div>
 
       <div class="card">
-        <h3>Designing Networks That Don’t Fail</h3>
-        <p>
-          Lessons from building resilient enterprise architectures.
-        </p>
+        <h3><a href="blog-network.html">Designing Networks That Don’t Fail</a></h3>
+        <p>Lessons from enterprise network design.</p>
       </div>
 
     </div>
