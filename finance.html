@@ -1,61 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Finance Tools | Ambarish Pathak</title>
-  <style>
-    body {
-      background: #020617;
-      color: white;
-      font-family: Arial;
-      padding: 40px;
-    }
+<meta charset="UTF-8">
+<title>Financial Goal Planner</title>
+<style>
+body {
+  background: #020617;
+  color: #e2e8f0;
+  font-family: Arial;
+  padding: 30px;
+}
+h1 { color: white; }
 
-    .box {
-      background: #0f172a;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-    }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
 
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-    }
+.box {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 10px;
+}
 
-    button {
-      background: #38bdf8;
-      border: none;
-      font-weight: bold;
-    }
-  </style>
+input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  background: #38bdf8;
+  border: none;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 6px;
+  text-align: right;
+  border-bottom: 1px solid #1e293b;
+}
+
+th { color: white; }
+</style>
 </head>
 
 <body>
 
-<h1>SIP Calculator</h1>
+<h1>Financial Goal Planner</h1>
 
+<div class="container">
+
+<!-- INPUTS -->
 <div class="box">
-  <input id="amount" placeholder="Monthly Investment (₹)">
-  <input id="rate" placeholder="Return %">
-  <input id="years" placeholder="Years">
 
-  <button onclick="calc()">Calculate</button>
+<h3>Inputs</h3>
 
-  <h3 id="result"></h3>
+<label>Goal Year</label>
+<input id="goal" value="20">
+
+<label>Target Wealth</label>
+<input id="target" value="10000000">
+
+<label>Inflation (%)</label>
+<input id="inflation" value="6">
+
+<hr>
+
+<h3>Assets</h3>
+
+<div id="assets"></div>
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="status"></h3>
+
+</div>
+
+<!-- OUTPUT -->
+<div class="box">
+<h3>Projection</h3>
+<table id="table"></table>
+</div>
+
 </div>
 
 <script>
-function calc() {
-  let P = document.getElementById("amount").value;
-  let r = document.getElementById("rate").value / 100 / 12;
-  let n = document.getElementById("years").value * 12;
 
-  let fv = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+const assetNames = ["PF","PPF","NPS","Equity","MF"];
 
-  document.getElementById("result").innerText =
-    "Future Value: ₹" + Math.round(fv).toLocaleString();
+const assetDiv = document.getElementById("assets");
+
+// Generate input fields
+assetNames.forEach(name => {
+  assetDiv.innerHTML += `
+    <h4>${name}</h4>
+    <input id="${name}_current" placeholder="Current">
+    <input id="${name}_monthly" placeholder="Monthly">
+    <input id="${name}_rate" placeholder="Return %">
+  `;
+});
+
+function fv(P, M, r, n) {
+  if (r === 0) return P + (M * 12 * n);
+  return P * Math.pow(1+r,n) + (M*12) * ((Math.pow(1+r,n)-1)/r);
 }
+
+function calculate() {
+
+  let goal = parseInt(document.getElementById("goal").value);
+  let target = parseFloat(document.getElementById("target").value);
+
+  let inflation = parseFloat(document.getElementById("inflation").value);
+  inflation = inflation > 1 ? inflation/100 : inflation;
+
+  let table = "<tr><th>Year</th><th>Total</th><th>Inflation Adj</th></tr>";
+
+  let finalValue = 0;
+
+  for (let year = 0; year <= goal; year++) {
+
+    let total = 0;
+
+    assetNames.forEach(name => {
+      let P = parseFloat(document.getElementById(name+"_current").value || 0);
+      let M = parseFloat(document.getElementById(name+"_monthly").value || 0);
+      let r = parseFloat(document.getElementById(name+"_rate").value || 0) / 100;
+
+      total += fv(P,M,r,year);
+    });
+
+    let inflationAdj = total / Math.pow(1+inflation, year);
+
+    table += `<tr>
+      <td>${year}</td>
+      <td>${Math.round(total).toLocaleString()}</td>
+      <td>${Math.round(inflationAdj).toLocaleString()}</td>
+    </tr>`;
+
+    if (year === goal) finalValue = total;
+  }
+
+  document.getElementById("table").innerHTML = table;
+
+  // Status
+  let status = finalValue >= target ? "✅ ON TRACK" : "❌ OFF TRACK";
+  document.getElementById("status").innerText = status;
+}
+
 </script>
 
 </body>
