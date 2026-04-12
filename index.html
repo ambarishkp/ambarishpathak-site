@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ambarish Pathak | Systems Design</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #020617;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAV */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 25px 0;
+    }
+
+    .nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    .nav a:hover {
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 100px 0 80px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      color: #94a3b8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 22px;
+      background: #38bdf8;
+      color: black;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid #0f172a;
+    }
+
+    h2 {
+      color: white;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #0f172a;
+      padding: 25px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #111827;
+    }
+
+    .card h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #94a3b8;
+      font-size: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 50px 0;
+      font-size: 14px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div><strong>Ambarish Pathak</strong></div>
+    <div>
+      <a href="#network">Network</a>
+      <a href="#finance">Finance</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>I design systems that scale.</h1>
+    <p>
+      From enterprise network architecture to personal wealth building,
+      I focus on creating systems that are resilient, efficient, and built for the long term.
+    </p>
+    <a href="#network" class="btn">Explore My Work</a>
+  </div>
+
+  <!-- NETWORK -->
+  <div class="section" id="network">
+    <h2>Network Design</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Enterprise Architecture</h3>
+        <p>
+          Designing scalable campus networks with segmentation, TrustSec, and high availability.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Automation Systems</h3>
+        <p>
+          Building proactive monitoring systems to detect issues before users are impacted.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Design Thinking</h3>
+        <p>
+          Simplifying complex systems into manageable and maintainable architectures.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FINANCE -->
+  <div class="section" id="finance">
+    <h2>Personal Finance</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Long-Term Investing</h3>
+        <p>
+          Focused on disciplined investing using equity, PF, and compounding strategies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Financial Systems</h3>
+        <p>
+          Treating wealth creation as a system — structured, consistent, and scalable.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Tools & Calculators</h3>
+        <p>
+          Interactive tools to plan investments, projections, and financial decisions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <h2>Contact</h2>
+    <p>
+  📩 Email: 
+  <a href="mailto:ambarish.pathak@zohomail.in">ambarish.pathak@zohomail.in</a>
+</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2026 Ambarish Pathak — Systems. Simplicity. Scale.
+  </div>
+
+</div>
+
+</body>
+</html>
