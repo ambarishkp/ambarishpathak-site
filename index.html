@@ -261,13 +261,32 @@
 
   <!-- CONTACT -->
   <div class="section" id="contact">
-    <h2>Contact</h2>
-    <p>
-      📩 <a href="mailto:ambarish.pathak@zohomail.in">
-        ambarish.pathak@zohomail.in
-      </a>
+  <h2>Contact</h2>
+
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+
+    <!-- Required hidden field -->
+    <input type="hidden" name="form-name" value="contact">
+
+    <!-- Anti-spam hidden field -->
+    <p style="display:none;">
+      <label>Don’t fill this: <input name="bot-field"></label>
     </p>
-  </div>
+
+    <label>Your Name</label>
+    <input type="text" name="name" required>
+
+    <label>Your Email</label>
+    <input type="email" name="email" required>
+
+    <label>Message</label>
+    <textarea name="message" rows="4" required></textarea>
+
+    <button type="submit">Send Message</button>
+
+  </form>
+
+</div>
 
   <div class="footer">
     © 2026 Ambarish Pathak
